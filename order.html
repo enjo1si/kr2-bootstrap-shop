@@ -1,19 +1,301 @@
 <!doctype html>
 <html lang="ru">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Форсаж — учебный сайт картинг-центра: заезды, обучение, трассы и демонстрационное бронирование.">
-  <title>Бронирование — Форсаж</title>
-  <link rel="icon" href="images/mark.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/custom.css">
-</head>
-<body>
-<a class="visually-hidden-focusable skip-link" href="#main">Перейти к содержимому</a>
-<header class="site-header"><nav class="navbar navbar-expand-lg navbar-dark py-3" aria-label="Основная навигация"><div class="container"><a class="navbar-brand fw-bold fst-italic" href="index.html"><img src="images/mark.svg" width="32" height="32" alt=""> ФОРСАЖ<span class="brand-sub">КАРТИНГ-ЦЕНТР</span></a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Открыть меню"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="mainNav"><ul class="navbar-nav ms-auto gap-lg-3"><li class="nav-item"><a class="nav-link " href="index.html">Главная</a></li><li class="nav-item"><a class="nav-link " href="catalog.html">Заезды</a></li><li class="nav-item"><a class="nav-link " href="tracks.html">Трассы и карты</a></li><li class="nav-item"><a class="nav-link " href="contacts.html">О центре</a></li><li class="nav-item"><a class="nav-link active" aria-current="page" href="order.html">Бронирование</a></li></ul></div></div></nav></header>
-<main id="main" class="container my-5"><div class="row gx-4 gy-5"><section class="col-12 col-lg-4"><p class="eyebrow">СЛЕДУЮЩИЙ ШАГ — НА СТАРТ</p><h1 class="display-5 fw-bold">Запланируй свой заезд</h1><p class="lead">Выбери программу, число участников и время.</p><div class="alert alert-info" role="alert">Учебная форма. Заявка никуда не отправляется и место не бронируется. Используйте вымышленные данные.</div><p class="small text-body-secondary">Учебное расписание: ежедневно 10:00–21:00. Приезжайте за 15 минут для инструктажа. Дата — от завтра до 60 дней вперёд.</p></section><section class="col-12 col-lg-8"><div class="card"><div class="card-header py-3"><h2 class="h4 mb-0">Форма бронирования</h2></div><div class="card-body p-4"><p class="small">* — обязательные поля. Все участники одной заявки должны подходить программе по возрасту и опыту.</p><noscript><div class="alert alert-warning" role="alert">Включите JavaScript для проверки и расчёта заявки.</div></noscript><form id="bookingForm" novalidate><div class="row g-3"><div class="col-12 col-md-6"><label class="form-label" for="name">Имя контактного лица *</label><input class="form-control" id="name" name="name" autocomplete="name" maxlength="80" required><div class="invalid-feedback">Введите имя, не состоящее из пробелов.</div></div><div class="col-12 col-md-6"><label class="form-label" for="email">E-mail *</label><input class="form-control" id="email" name="email" type="email" autocomplete="email" required><div class="invalid-feedback">Введите корректный e-mail.</div></div><div class="col-12 col-md-6"><label class="form-label" for="phone">Телефон *</label><div class="input-group has-validation"><span class="input-group-text">+7</span><input id="phone" name="phone" class="form-control" type="tel" inputmode="tel" autocomplete="tel-national" required pattern="[0-9 ()-]{10,18}" placeholder="900 000-00-00" aria-describedby="phoneHelp"><div class="invalid-feedback">Введите 10 цифр без +7.</div></div><div id="phoneHelp" class="form-text">10 цифр; пробелы, скобки и дефисы допустимы.</div></div><div class="col-12 col-md-6"><label class="form-label" for="program">Программа *</label><select id="program" name="program" class="form-select" required><option value="">Выберите программу</option><option value="sprint">Первый старт — 1400 ₽</option><option value="training">Тренировка с инструктором — 3200 ₽</option><option value="kids">Детская секция — 2200 ₽</option><option value="race">Гоночный заезд — 2400 ₽</option></select><div class="invalid-feedback">Выберите программу.</div></div><div class="col-12 col-md-6"><label class="form-label" for="age">Минимальный возраст участников *</label><input class="form-control" id="age" name="age" type="number" min="8" max="99" step="1" required><div class="invalid-feedback">Для секции: 8–13 лет; для остальных программ: 14–99 лет.</div></div><div class="col-12 col-md-6"><label class="form-label" for="experience">Опыт участников *</label><select id="experience" name="experience" class="form-select" required><option value="">Выберите опыт</option><option value="beginner">Есть начинающие</option><option value="experienced">У всех есть опыт</option></select><div class="invalid-feedback">Для гоночного заезда опыт нужен всем участникам.</div></div><div class="col-12 col-md-6"><label class="form-label" for="people">Число участников *</label><select id="people" name="people" class="form-select" required><option value="1">1 участник</option><option value="2">2 участника</option><option value="3">3 участника</option><option value="4">4 участника</option></select><div class="invalid-feedback">Выберите от 1 до 4 участников.</div></div><div class="col-12 col-md-6"><label class="form-label" for="date">Дата *</label><input class="form-control" id="date" name="date" type="date" required><div class="invalid-feedback">Выберите дату от завтра до 60 дней вперёд.</div></div><div class="col-12 col-md-6"><label class="form-label" for="time">Начало программы *</label><select id="time" name="time" class="form-select" required><option value="">Сначала выберите программу и дату</option></select><div class="invalid-feedback">Выберите доступное учебное время.</div></div><div class="col-12"><label class="form-label" for="comment">Комментарий</label><textarea id="comment" name="comment" class="form-control" rows="3" maxlength="500" placeholder="Например: все участники впервые"></textarea></div><div class="col-12"><div class="form-check"><input id="agree" name="agree" class="form-check-input" type="checkbox" required><label class="form-check-label" for="agree">Подтверждаю соответствие участников программе и согласие на обработку данных учебной формы *</label><div class="invalid-feedback">Подтвердите согласие.</div></div></div><div class="col-12"><p class="fw-bold mb-0" id="estimate" aria-live="polite">Выберите программу для расчёта стоимости.</p></div><div class="col-12 d-flex flex-wrap gap-2"><button class="btn btn-primary" id="submitBooking" type="submit" disabled>Проверить заявку</button><button class="btn btn-outline-dark" type="reset">Очистить</button></div></div></form><section class="alert alert-success mt-4 d-none" id="bookingResult" aria-live="polite" tabindex="-1"><h3 class="h5">Учебная заявка проверена</h3><p id="bookingSummary"></p><p class="mb-0">Ничего не отправлено. Реальное бронирование требует подтверждения центра.</p></section></div></div></section></div></main>
-<footer class="site-footer py-4 mt-5"><div class="container d-flex flex-column flex-md-row justify-content-between gap-3"><div><a href="index.html" class="fw-bold fst-italic text-decoration-none text-white">ФОРСАЖ / КАРТИНГ</a><p class="small mb-0 mt-2">Твой следующий круг начинается здесь.</p></div><p class="small mb-0">Учебный проект · КР №2<br>Цены и расписание демонстрационные.<br>Бронирование не отправляется.</p></div></footer>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="js/app.js"></script>
-</body></html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Форсаж — учебный сайт картинг-центра: заезды, обучение, трассы и демонстрационное бронирование.">
+    <title>
+      Бронирование — Форсаж
+    </title>
+    <link rel="icon" href="images/mark.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+  </head>
+  <body>
+    <a class="visually-hidden-focusable skip-link" href="#main">
+      Перейти к содержимому
+    </a>
+    <header class="bg-dark">
+      <nav class="navbar navbar-expand-lg navbar-dark py-3" aria-label="Основная навигация">
+        <div class="container">
+          <a class="navbar-brand" href="index.html">
+            <img src="images/mark.svg" width="32" height="32" alt="">
+            Форсаж
+            <span class="small fw-normal ms-2 d-none d-xl-inline">
+              Картинг-центр
+            </span>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Открыть меню">
+            <span class="navbar-toggler-icon">
+            </span>
+          </button>
+          <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav ms-auto gap-lg-3">
+              <li class="nav-item">
+                <a class="nav-link " href="index.html">
+                  Главная
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="catalog.html">
+                  Заезды
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="tracks.html">
+                  Трассы и карты
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="contacts.html">
+                  О центре
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="order.html">
+                  Бронирование
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main id="main" class="container my-5">
+      <div class="row gx-4 gy-5">
+        <section class="col-12 col-lg-4">
+          <h1>
+            Запланируй свой заезд
+          </h1>
+          <p class="lead">
+            Выбери программу, число участников и время.
+          </p>
+          <div class="alert alert-info" role="alert">
+            Учебная форма. Заявка никуда не отправляется и место не бронируется. Используйте вымышленные данные.
+          </div>
+          <p class="small text-body-secondary">
+            Учебное расписание: ежедневно 10:00–21:00. Приезжайте за 15 минут для инструктажа. Дата — от завтра до 60 дней вперёд.
+          </p>
+        </section>
+        <section class="col-12 col-lg-8">
+          <div class="card">
+            <div class="card-header py-3">
+              <h2 class="h4 mb-0">
+                Форма бронирования
+              </h2>
+            </div>
+            <div class="card-body p-4">
+              <p class="small">
+                * — обязательные поля. Все участники одной заявки должны подходить программе по возрасту и опыту.
+              </p>
+              <noscript>
+                <div class="alert alert-warning" role="alert">
+                  Включите JavaScript для проверки и расчёта заявки.
+                </div>
+              </noscript>
+              <form id="bookingForm" novalidate>
+                <div class="row g-3">
+                  <div class="col-12 col-md-6">
+                    <label class="form-label" for="name">
+                      Имя контактного лица *
+                    </label>
+                    <input class="form-control" id="name" name="name" autocomplete="name" maxlength="80" required>
+                    <div class="invalid-feedback">
+                      Введите имя, не состоящее из пробелов.
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label class="form-label" for="email">
+                      E-mail *
+                    </label>
+                    <input class="form-control" id="email" name="email" type="email" autocomplete="email" required>
+                    <div class="invalid-feedback">
+                      Введите корректный e-mail.
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label class="form-label" for="phone">
+                      Телефон *
+                    </label>
+                    <div class="input-group has-validation">
+                      <span class="input-group-text">
+                        +7
+                      </span>
+                      <input id="phone" name="phone" class="form-control" type="tel" inputmode="tel" autocomplete="tel-national" required pattern="[0-9 ()-]{10,18}" placeholder="900 000-00-00" aria-describedby="phoneHelp">
+                      <div class="invalid-feedback">
+                        Введите 10 цифр без +7.
+                      </div>
+                    </div>
+                    <div id="phoneHelp" class="form-text">
+                      10 цифр; пробелы, скобки и дефисы допустимы.
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label class="form-label" for="program">
+                      Программа *
+                    </label>
+                    <select id="program" name="program" class="form-select" required>
+                      <option value="">
+                        Выберите программу
+                      </option>
+                      <option value="sprint">
+                        Первый старт — 1400 ₽
+                      </option>
+                      <option value="training">
+                        Тренировка с инструктором — 3200 ₽
+                      </option>
+                      <option value="kids">
+                        Детская секция — 2200 ₽
+                      </option>
+                      <option value="race">
+                        Гоночный заезд — 2400 ₽
+                      </option>
+                    </select>
+                    <div class="invalid-feedback">
+                      Выберите программу.
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label class="form-label" for="age">
+                      Минимальный возраст участников *
+                    </label>
+                    <input class="form-control" id="age" name="age" type="number" min="8" max="99" step="1" required>
+                    <div class="invalid-feedback">
+                      Для секции: 8–13 лет; для остальных программ: 14–99 лет.
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label class="form-label" for="experience">
+                      Опыт участников *
+                    </label>
+                    <select id="experience" name="experience" class="form-select" required>
+                      <option value="">
+                        Выберите опыт
+                      </option>
+                      <option value="beginner">
+                        Есть начинающие
+                      </option>
+                      <option value="experienced">
+                        У всех есть опыт
+                      </option>
+                    </select>
+                    <div class="invalid-feedback">
+                      Для гоночного заезда опыт нужен всем участникам.
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label class="form-label" for="people">
+                      Число участников *
+                    </label>
+                    <select id="people" name="people" class="form-select" required>
+                      <option value="1">
+                        1 участник
+                      </option>
+                      <option value="2">
+                        2 участника
+                      </option>
+                      <option value="3">
+                        3 участника
+                      </option>
+                      <option value="4">
+                        4 участника
+                      </option>
+                    </select>
+                    <div class="invalid-feedback">
+                      Выберите от 1 до 4 участников.
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label class="form-label" for="date">
+                      Дата *
+                    </label>
+                    <input class="form-control" id="date" name="date" type="date" required>
+                    <div class="invalid-feedback">
+                      Выберите дату от завтра до 60 дней вперёд.
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label class="form-label" for="time">
+                      Начало программы *
+                    </label>
+                    <select id="time" name="time" class="form-select" required>
+                      <option value="">
+                        Сначала выберите программу и дату
+                      </option>
+                    </select>
+                    <div class="invalid-feedback">
+                      Выберите доступное учебное время.
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label" for="comment">
+                      Комментарий
+                    </label>
+                    <textarea id="comment" name="comment" class="form-control" rows="3" maxlength="500" placeholder="Например: все участники впервые"></textarea>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-check">
+                      <input id="agree" name="agree" class="form-check-input" type="checkbox" required>
+                      <label class="form-check-label" for="agree">
+                        Подтверждаю соответствие участников программе и согласие на обработку данных учебной формы *
+                      </label>
+                      <div class="invalid-feedback">
+                        Подтвердите согласие.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <p class="fw-bold mb-0" id="estimate" aria-live="polite">
+                      Выберите программу для расчёта стоимости.
+                    </p>
+                  </div>
+                  <div class="col-12 d-flex flex-wrap gap-2">
+                    <button class="btn btn-dark" id="submitBooking" type="submit" disabled>
+                      Проверить заявку
+                    </button>
+                    <button class="btn btn-outline-dark" type="reset">
+                      Очистить
+                    </button>
+                  </div>
+                </div>
+              </form>
+              <section class="alert alert-success mt-4 d-none" id="bookingResult" aria-live="polite" tabindex="-1">
+                <h3 class="h5">
+                  Учебная заявка проверена
+                </h3>
+                <p id="bookingSummary">
+                </p>
+                <p class="mb-0">
+                  Ничего не отправлено. Реальное бронирование требует подтверждения центра.
+                </p>
+              </section>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer class="bg-dark text-white py-4 mt-5">
+      <div class="container d-flex flex-column flex-md-row justify-content-between gap-3">
+        <div>
+          <a href="index.html" class="text-decoration-none text-white">
+            Форсаж — картинг-центр
+          </a>
+          <p class="small mb-0 mt-2">
+            Заезды, обучение и детские занятия.
+          </p>
+        </div>
+        <p class="small mb-0">
+          Учебный проект · КР №2
+          <br>
+          Цены и расписание демонстрационные.
+          <br>
+          Бронирование не отправляется.
+        </p>
+      </div>
+    </footer>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js">
+    </script>
+    <script src="js/app.js">
+    </script>
+  </body>
+</html>

@@ -1,19 +1,312 @@
 <!doctype html>
 <html lang="ru">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Форсаж — учебный сайт картинг-центра: заезды, обучение, трассы и демонстрационное бронирование.">
-  <title>Заезды и обучение — Форсаж</title>
-  <link rel="icon" href="images/mark.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/custom.css">
-</head>
-<body>
-<a class="visually-hidden-focusable skip-link" href="#main">Перейти к содержимому</a>
-<header class="site-header"><nav class="navbar navbar-expand-lg navbar-dark py-3" aria-label="Основная навигация"><div class="container"><a class="navbar-brand fw-bold fst-italic" href="index.html"><img src="images/mark.svg" width="32" height="32" alt=""> ФОРСАЖ<span class="brand-sub">КАРТИНГ-ЦЕНТР</span></a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Открыть меню"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="mainNav"><ul class="navbar-nav ms-auto gap-lg-3"><li class="nav-item"><a class="nav-link " href="index.html">Главная</a></li><li class="nav-item"><a class="nav-link active" aria-current="page" href="catalog.html">Заезды</a></li><li class="nav-item"><a class="nav-link " href="tracks.html">Трассы и карты</a></li><li class="nav-item"><a class="nav-link " href="contacts.html">О центре</a></li><li class="nav-item"><a class="nav-link " href="order.html">Бронирование</a></li></ul></div></div></nav></header>
-<main id="main" class="container my-5"><p class="eyebrow">НАЙДИ СВОЙ ТЕМП</p><h1 class="display-4 fw-bold mb-3">Заезды и обучение</h1><p class="lead">Выбери программу под возраст и опыт пилота.</p><div class="alert alert-info" role="alert">Цены и условия — учебные примеры. Указана стоимость за одного участника.</div><div class="row g-3 align-items-end mb-4"><div class="col-12 col-md-4"><label class="form-label" for="ageFilter">Возраст пилота</label><select class="form-select" id="ageFilter"><option value="all">Все возрасты</option><option value="child">8–13 лет</option><option value="adult">14 лет и старше</option></select></div><div class="col-12 col-md-4"><label class="form-label" for="levelFilter">Опыт</label><select class="form-select" id="levelFilter"><option value="all">Любой опыт</option><option value="beginner">Первый раз</option><option value="experienced">Есть опыт</option></select></div><div class="col-12 col-md-4"><p class="mb-2" id="filterCount" aria-live="polite">Найдено программ: 4</p></div></div><div class="row g-4"><div class="col-12 col-md-6 col-lg-4 program-item" data-age="adult" data-level="beginner"><article class="card h-100"><div class="card-body p-4 d-flex flex-column"><div class="d-flex justify-content-between gap-2 mb-4"><span class="badge text-bg-dark">14+</span><span class="small text-body-secondary">10 минут</span></div><p class="eyebrow text-body-secondary">ЗАЕЗД</p><h3 class="card-title h4">Первый старт</h3><p class="card-text text-body-secondary">Разовый заезд на взрослом карте. Инструктаж и знакомство с трассой включены.</p><p class="price mt-auto">1 400 ₽ <span class="small fw-normal text-body-secondary">/ участник</span></p><div class="d-flex flex-wrap gap-2"><a class="btn btn-outline-dark" href="product.html?program=sprint">Подробнее</a><button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#programModal" data-program="sprint">Выбрать</button></div></div></article></div><div class="col-12 col-md-6 col-lg-4 program-item" data-age="adult" data-level="all"><article class="card h-100"><div class="card-body p-4 d-flex flex-column"><div class="d-flex justify-content-between gap-2 mb-4"><span class="badge text-bg-dark">14+</span><span class="small text-body-secondary">30 минут</span></div><p class="eyebrow text-body-secondary">ОБУЧЕНИЕ</p><h3 class="card-title h4">Тренировка с инструктором</h3><p class="card-text text-body-secondary">Разбор траектории  торможения и работы с рулём. Для первого знакомства и улучшения времени.</p><p class="price mt-auto">3 200 ₽ <span class="small fw-normal text-body-secondary">/ участник</span></p><div class="d-flex flex-wrap gap-2"><a class="btn btn-outline-dark" href="product.html?program=training">Подробнее</a><button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#programModal" data-program="training">Выбрать</button></div></div></article></div><div class="col-12 col-md-6 col-lg-4 program-item" data-age="child" data-level="beginner"><article class="card h-100"><div class="card-body p-4 d-flex flex-column"><div class="d-flex justify-content-between gap-2 mb-4"><span class="badge text-bg-dark">8–13 лет</span><span class="small text-body-secondary">30 минут</span></div><p class="eyebrow text-body-secondary">ОБУЧЕНИЕ</p><h3 class="card-title h4">Детская секция</h3><p class="card-text text-body-secondary">Вводное занятие на детском карте с инструктором. Группа 8–13 лет.</p><p class="price mt-auto">2 200 ₽ <span class="small fw-normal text-body-secondary">/ участник</span></p><div class="d-flex flex-wrap gap-2"><a class="btn btn-outline-dark" href="product.html?program=kids">Подробнее</a><button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#programModal" data-program="kids">Выбрать</button></div></div></article></div><div class="col-12 col-md-6 col-lg-4 program-item" data-age="adult" data-level="experienced"><article class="card h-100"><div class="card-body p-4 d-flex flex-column"><div class="d-flex justify-content-between gap-2 mb-4"><span class="badge text-bg-dark">14+</span><span class="small text-body-secondary">20 минут</span></div><p class="eyebrow text-body-secondary">ЗАЕЗД</p><h3 class="card-title h4">Гоночный заезд</h3><p class="card-text text-body-secondary">Квалификация и заезд для пилотов с опытом. Учебная программа соревнования.</p><p class="price mt-auto">2 400 ₽ <span class="small fw-normal text-body-secondary">/ участник</span></p><div class="d-flex flex-wrap gap-2"><a class="btn btn-outline-dark" href="product.html?program=race">Подробнее</a><button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#programModal" data-program="race">Выбрать</button></div></div></article></div></div><p id="emptyCatalog" class="alert alert-secondary mt-4" role="status" hidden>Подходящих программ нет. Измените возраст или опыт.</p><noscript><p class="mt-4">Без JavaScript фильтр и окно выбора не работают. Все программы доступны по ссылкам «Подробнее».</p></noscript></main><div class="modal fade" id="programModal" tabindex="-1" aria-labelledby="programModalTitle" aria-hidden="true"><div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h2 class="modal-title fs-5" id="programModalTitle">Выбранная программа</h2><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Закрыть"></button></div><div class="modal-body"><p id="modalProgram"></p><div class="alert alert-info" role="alert">На следующем шаге выберите число участников и время. Это демонстрация, реальное место не бронируется.</div></div><div class="modal-footer"><button class="btn btn-outline-dark" data-bs-dismiss="modal" type="button">Назад</button><a class="btn btn-primary" id="modalOrder" href="order.html">Перейти к бронированию</a></div></div></div></div>
-<footer class="site-footer py-4 mt-5"><div class="container d-flex flex-column flex-md-row justify-content-between gap-3"><div><a href="index.html" class="fw-bold fst-italic text-decoration-none text-white">ФОРСАЖ / КАРТИНГ</a><p class="small mb-0 mt-2">Твой следующий круг начинается здесь.</p></div><p class="small mb-0">Учебный проект · КР №2<br>Цены и расписание демонстрационные.<br>Бронирование не отправляется.</p></div></footer>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="js/app.js"></script>
-</body></html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Форсаж — учебный сайт картинг-центра: заезды, обучение, трассы и демонстрационное бронирование.">
+    <title>
+      Заезды и обучение — Форсаж
+    </title>
+    <link rel="icon" href="images/mark.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+  </head>
+  <body>
+    <a class="visually-hidden-focusable skip-link" href="#main">
+      Перейти к содержимому
+    </a>
+    <header class="bg-dark">
+      <nav class="navbar navbar-expand-lg navbar-dark py-3" aria-label="Основная навигация">
+        <div class="container">
+          <a class="navbar-brand" href="index.html">
+            <img src="images/mark.svg" width="32" height="32" alt="">
+            Форсаж
+            <span class="small fw-normal ms-2 d-none d-xl-inline">
+              Картинг-центр
+            </span>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Открыть меню">
+            <span class="navbar-toggler-icon">
+            </span>
+          </button>
+          <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav ms-auto gap-lg-3">
+              <li class="nav-item">
+                <a class="nav-link " href="index.html">
+                  Главная
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="catalog.html">
+                  Заезды
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="tracks.html">
+                  Трассы и карты
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="contacts.html">
+                  О центре
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="order.html">
+                  Бронирование
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main id="main" class="container my-5">
+      <h1 class="mb-3">
+        Заезды и обучение
+      </h1>
+      <p class="lead">
+        Выбери программу под возраст и опыт пилота.
+      </p>
+      <div class="alert alert-info" role="alert">
+        Цены и условия — учебные примеры. Указана стоимость за одного участника.
+      </div>
+      <div class="row g-3 align-items-end mb-4">
+        <div class="col-12 col-md-4">
+          <label class="form-label" for="ageFilter">
+            Возраст пилота
+          </label>
+          <select class="form-select" id="ageFilter">
+            <option value="all">
+              Все возрасты
+            </option>
+            <option value="child">
+              8–13 лет
+            </option>
+            <option value="adult">
+              14 лет и старше
+            </option>
+          </select>
+        </div>
+        <div class="col-12 col-md-4">
+          <label class="form-label" for="levelFilter">
+            Опыт
+          </label>
+          <select class="form-select" id="levelFilter">
+            <option value="all">
+              Любой опыт
+            </option>
+            <option value="beginner">
+              Первый раз
+            </option>
+            <option value="experienced">
+              Есть опыт
+            </option>
+          </select>
+        </div>
+        <div class="col-12 col-md-4">
+          <p class="mb-2" id="filterCount" aria-live="polite">
+            Найдено программ: 4
+          </p>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4 program-item" data-age="adult" data-level="beginner">
+          <article class="card h-100">
+            <div class="card-body p-4 d-flex flex-column">
+              <div class="d-flex justify-content-between gap-2 mb-4">
+                <span class="badge text-bg-dark">
+                  14+
+                </span>
+                <span class="small text-body-secondary">
+                  10 минут
+                </span>
+              </div>
+              <h3 class="card-title h4">
+                Первый старт
+              </h3>
+              <p class="card-text text-body-secondary">
+                Разовый заезд на взрослом карте. Инструктаж и знакомство с трассой включены.
+              </p>
+              <p class="fs-5 fw-bold mt-auto">
+                1 400 ₽
+                <span class="small fw-normal text-body-secondary">
+                  / участник
+                </span>
+              </p>
+              <div class="d-flex flex-wrap gap-2">
+                <a class="btn btn-outline-dark" href="product.html?program=sprint">
+                  Подробнее
+                </a>
+                <button class="btn btn-dark" type="button" data-bs-toggle="modal" data-bs-target="#programModal" data-program="sprint">
+                  Выбрать
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4 program-item" data-age="adult" data-level="all">
+          <article class="card h-100">
+            <div class="card-body p-4 d-flex flex-column">
+              <div class="d-flex justify-content-between gap-2 mb-4">
+                <span class="badge text-bg-dark">
+                  14+
+                </span>
+                <span class="small text-body-secondary">
+                  30 минут
+                </span>
+              </div>
+              <h3 class="card-title h4">
+                Тренировка с инструктором
+              </h3>
+              <p class="card-text text-body-secondary">
+                Разбор траектории, торможения и работы с рулём. Для первого знакомства и улучшения времени.
+              </p>
+              <p class="fs-5 fw-bold mt-auto">
+                3 200 ₽
+                <span class="small fw-normal text-body-secondary">
+                  / участник
+                </span>
+              </p>
+              <div class="d-flex flex-wrap gap-2">
+                <a class="btn btn-outline-dark" href="product.html?program=training">
+                  Подробнее
+                </a>
+                <button class="btn btn-dark" type="button" data-bs-toggle="modal" data-bs-target="#programModal" data-program="training">
+                  Выбрать
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4 program-item" data-age="child" data-level="beginner">
+          <article class="card h-100">
+            <div class="card-body p-4 d-flex flex-column">
+              <div class="d-flex justify-content-between gap-2 mb-4">
+                <span class="badge text-bg-dark">
+                  8–13 лет
+                </span>
+                <span class="small text-body-secondary">
+                  30 минут
+                </span>
+              </div>
+              <h3 class="card-title h4">
+                Детская секция
+              </h3>
+              <p class="card-text text-body-secondary">
+                Вводное занятие на детском карте с инструктором. Группа 8–13 лет.
+              </p>
+              <p class="fs-5 fw-bold mt-auto">
+                2 200 ₽
+                <span class="small fw-normal text-body-secondary">
+                  / участник
+                </span>
+              </p>
+              <div class="d-flex flex-wrap gap-2">
+                <a class="btn btn-outline-dark" href="product.html?program=kids">
+                  Подробнее
+                </a>
+                <button class="btn btn-dark" type="button" data-bs-toggle="modal" data-bs-target="#programModal" data-program="kids">
+                  Выбрать
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4 program-item" data-age="adult" data-level="experienced">
+          <article class="card h-100">
+            <div class="card-body p-4 d-flex flex-column">
+              <div class="d-flex justify-content-between gap-2 mb-4">
+                <span class="badge text-bg-dark">
+                  14+
+                </span>
+                <span class="small text-body-secondary">
+                  20 минут
+                </span>
+              </div>
+              <h3 class="card-title h4">
+                Гоночный заезд
+              </h3>
+              <p class="card-text text-body-secondary">
+                Квалификация и заезд для пилотов с опытом. Учебная программа соревнования.
+              </p>
+              <p class="fs-5 fw-bold mt-auto">
+                2 400 ₽
+                <span class="small fw-normal text-body-secondary">
+                  / участник
+                </span>
+              </p>
+              <div class="d-flex flex-wrap gap-2">
+                <a class="btn btn-outline-dark" href="product.html?program=race">
+                  Подробнее
+                </a>
+                <button class="btn btn-dark" type="button" data-bs-toggle="modal" data-bs-target="#programModal" data-program="race">
+                  Выбрать
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+      <p id="emptyCatalog" class="alert alert-secondary mt-4" role="status" hidden>
+        Подходящих программ нет. Измените возраст или опыт.
+      </p>
+      <noscript>
+        <p class="mt-4">
+          Без JavaScript фильтр и окно выбора не работают. Все программы доступны по ссылкам «Подробнее».
+        </p>
+      </noscript>
+    </main>
+    <div class="modal fade" id="programModal" tabindex="-1" aria-labelledby="programModalTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title fs-5" id="programModalTitle">
+              Выбранная программа
+            </h2>
+            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Закрыть">
+            </button>
+          </div>
+          <div class="modal-body">
+            <p id="modalProgram">
+            </p>
+            <div class="alert alert-info" role="alert">
+              На следующем шаге выберите число участников и время. Это демонстрация, реальное место не бронируется.
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-outline-dark" data-bs-dismiss="modal" type="button">
+              Назад
+            </button>
+            <a class="btn btn-dark" id="modalOrder" href="order.html">
+              Перейти к бронированию
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="bg-dark text-white py-4 mt-5">
+      <div class="container d-flex flex-column flex-md-row justify-content-between gap-3">
+        <div>
+          <a href="index.html" class="text-decoration-none text-white">
+            Форсаж — картинг-центр
+          </a>
+          <p class="small mb-0 mt-2">
+            Заезды, обучение и детские занятия.
+          </p>
+        </div>
+        <p class="small mb-0">
+          Учебный проект · КР №2
+          <br>
+          Цены и расписание демонстрационные.
+          <br>
+          Бронирование не отправляется.
+        </p>
+      </div>
+    </footer>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js">
+    </script>
+    <script src="js/app.js">
+    </script>
+  </body>
+</html>

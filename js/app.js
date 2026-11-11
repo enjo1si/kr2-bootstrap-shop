@@ -11,7 +11,16 @@ const write = (id, value) => { if (byId(id)) byId(id).textContent = value; };
 const money = value => `${value.toLocaleString('ru-RU')} ₽`;
 const requested = new URLSearchParams(location.search).get('program');
 const known = id => Object.hasOwn(programs, id);
-const experienceLabel = item => item.experience === 'experienced' ? 'У всех должен быть опыт' : item.experience === 'all' ? 'Любой опыт' : 'Можно впервые';
+// Обычные условия вместо вложенного короткого выражения.
+function experienceLabel(item) {
+  if (item.experience === 'experienced') {
+    return 'У всех должен быть опыт';
+  }
+  if (item.experience === 'all') {
+    return 'Любой опыт';
+  }
+  return 'Можно впервые';
+}
 
 // Фильтры комбинируются. При нуле результатов появляется сообщение.
 if (byId('ageFilter')) {

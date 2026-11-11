@@ -36,9 +36,23 @@ kr2-bootstrap-shop/
 └── README.md
 ```
 
+## Простое оформление
+
+В текущей версии используются обычные заголовки, светлый фон, стандартные кнопки `btn-dark` и карточки Bootstrap. Убраны декоративные номера, крупный рекламный заголовок и дополнительная промосекция. В custom.css осталось четыре понятных правила: фон, активная ссылка, ссылка пропуска навигации и видимый фокус. Данные и функции каталога и формы сохранены.
+
 ## Запуск
 
-Распакуйте архив, откройте папку `kr2-bootstrap-shop` в VS Code. Откройте `index.html` браузером через Finder либо используйте расширение Live Server автора Ritwick Dey в VS Code. Нажмите правой кнопкой на index.html → Open with Live Server. После изменения файла нажмите ⌘S. Для просмотра без Live Server обновите браузер.
+Скачайте проект вместе с историей Git:
+
+```sh
+git clone https://github.com/enjo1si/kr2-bootstrap-shop.git
+cd kr2-bootstrap-shop
+git status
+```
+
+Откройте **эту папку** в VS Code через File → Open Folder… . Откройте `index.html` браузером через Finder либо используйте расширение Live Server автора Ritwick Dey: правый щелчок на index.html → Open with Live Server. После изменения файла нажмите ⌘S. Для просмотра без Live Server обновите браузер.
+
+Если GitHub недоступен, запасной вариант — восстановление из `forsazh-history.bundle` по [инструкции](docs/START-HERE.md#запасной-вариант-из-архива). Обычный ZIP исходников не содержит `.git`.
 
 ## Самостоятельные доработки по №11
 
@@ -60,12 +74,18 @@ kr2-bootstrap-shop/
 
 ## GitHub и сдача
 
-Профиль студента: https://github.com/enjo1si . Репозиторий **ещё не создан**, PR ещё не созданы и не объединены. Папка `kr2-bootstrap-shop` в архиве содержит исходники. Git-история передана отдельно в `forsazh-history.bundle`, её необходимо восстановить, как описано в [docs/START-HERE.md](docs/START-HERE.md).
+Репозиторий: [enjo1si/kr2-bootstrap-shop](https://github.com/enjo1si/kr2-bootstrap-shop). Он создан в аккаунте Руслана. Профиль: [enjo1si](https://github.com/enjo1si).
 
-Подготовительные коммиты созданы с техническим автором `Project preparation`, а не от имени студента или владельца ноутбука. Руслану нужно настроить имя и свой подтверждённый GitHub e-mail перед собственными коммитами. Глобальные настройки Git владельца ноутбука не менялись.
+Работа разделена на три учебных этапа:
 
-Ветки: `feature/bootstrap-grid-page`, `feature/bootstrap-components`, `fix/kr2-final-check`. Главная ветка `main` оставлена на начальном коммите, чтобы последовательно создать настоящие PR с видимыми изменениями. Рабочая финальная версия — в `fix/kr2-final-check`. После трёх PR результат будет в main. Не загружайте только финальный ZIP в main, если хотите показать PR каждого этапа.
+- [PR №1](https://github.com/enjo1si/kr2-bootstrap-shop/pull/1), `feature/bootstrap-grid-page → main` — главная и сетка, объединён.
+- [PR №2](https://github.com/enjo1si/kr2-bootstrap-shop/pull/2), `feature/bootstrap-components → main` — страницы и компоненты, объединён.
+- `fix/kr2-final-check → main` — финальные проверки, простое оформление и эта документация. Статус принимающего эти изменения PR проверяется во вкладке [Pull requests](https://github.com/enjo1si/kr2-bootstrap-shop/pulls).
 
-В СДО сдаётся ссылка на фактически созданный итоговый репозиторий. GitHub Pages необязателен; после публикации добавьте проверенную ссылку в README. Задание КР №3 в конце методички №11 относится к отдельному проекту на основе КР №1.
+Подтверждённые результаты перечислены в [docs/VERIFICATION.md](docs/VERIFICATION.md). После объединения финального PR актуальная версия находится в `main`.
+
+Подготовительные коммиты созданы с техническим автором `Project preparation`, а не от имени студента или владельца ноутбука. Перед собственными коммитами Руслану нужно настроить своё имя и подтверждённый GitHub e-mail. Глобальные настройки Git владельца ноутбука не менялись.
+
+В СДО сдаётся [ссылка на репозиторий](https://github.com/enjo1si/kr2-bootstrap-shop). GitHub Pages необязателен; после публикации добавьте проверенную ссылку в README. Задание КР №3 в конце методички №11 относится к отдельному проекту на основе КР №1.
 
 Начните с [docs/START-HERE.md](docs/START-HERE.md). Требования: [docs/REQUIREMENTS.md](docs/REQUIREMENTS.md). Личная проверка: [docs/CHECKLIST.md](docs/CHECKLIST.md). Результаты подготовки: [docs/VERIFICATION.md](docs/VERIFICATION.md).
