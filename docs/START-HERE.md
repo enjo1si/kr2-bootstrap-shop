@@ -127,7 +127,7 @@ git worktree add --detach ../forsazh-stage9 feature/bootstrap-grid-page
 
 - `navbar` — адаптивная шапка. `data-bs-target="#mainNav"` связывает кнопку с `id="mainNav"`.
 - `card` — карточка программы; `h-100` и flex делают высоту и положение цены аккуратными.
-- `btn` — кнопка, `btn-primary`/`btn-outline-dark` — варианты; `badge` — короткая метка возраста.
+- `btn` — кнопка, `btn-dark`/`btn-outline-dark` — варианты; `badge` — короткая метка возраста.
 - `alert` с `role="alert"` — пояснение. `modal` — окно выбора, его target должен совпадать с id.
 - `form-control`/`form-select` оформляют поля; `input-group` добавляет +7; `form-check` оформляет согласие. `label for` совпадает с id поля.
 - `accordion` — раскрывающиеся вопросы. Меню, окно и FAQ требуют Bootstrap JS Bundle.

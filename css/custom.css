@@ -1,13 +1,25 @@
-/* Сетка и компоненты — Bootstrap. Здесь фирменное оформление. */
-:root{--race-orange:#ff5c22;--race-dark:#14181b;--bs-body-bg:#f6f4ef;--bs-body-color:#20262b;}
-.site-header,.site-footer,.hero{background:var(--race-dark);color:#eef0f2;}
-.site-footer{color:#bac1c7;}.brand-sub{display:block;font-size:.55rem;letter-spacing:.22em;font-style:normal;padding-left:39px;}
-.hero h1{font-size:clamp(3rem,7vw,6.5rem);line-height:.98;font-weight:850;letter-spacing:-.065em;text-transform:uppercase;}.hero em{color:var(--race-orange);font-style:normal;}
-.eyebrow{font-size:.72rem;letter-spacing:.15em;font-weight:700;}.hero p{color:#c6ccd1;}.hero-art{width:100%;height:auto;}
-.hero .lead{max-width:36rem;}.number{font-size:2rem;font-weight:800;color:#ab350b;}.price{font-size:1.35rem;font-weight:750;}
-.navbar .nav-link.active{color:#ff9a74;font-weight:700;text-decoration:underline;text-underline-offset:7px;}
-.btn-primary{--bs-btn-bg:#ff5c22;--bs-btn-border-color:#ff5c22;--bs-btn-color:#111;--bs-btn-hover-bg:#e84b12;--bs-btn-hover-border-color:#e84b12;--bs-btn-hover-color:#111;--bs-btn-active-bg:#d9440e;--bs-btn-active-border-color:#d9440e;--bs-btn-active-color:#111;font-weight:700;}
-.card{--bs-card-border-color:#d9d9d3;--bs-card-bg:#fff;--bs-card-border-radius:1rem;}.section-rule{border-top:1px solid #c9cec9;}
-:focus-visible{outline:3px solid #1476b8;outline-offset:4px;}.skip-link{position:absolute;z-index:1100;background:white;color:#111;padding:1rem;}
-.form-check-input:checked{background-color:#a9360c;border-color:#a9360c;}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;scroll-behavior:auto!important;}}
+/* Основная сетка, кнопки, карточки и формы оформлены Bootstrap. */
+body {
+  background-color: #f8f9fa;
+}
+
+/* Отмечаем текущий раздел в меню. */
+.navbar .nav-link.active {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* Ссылка позволяет перейти к содержимому с клавиатуры. */
+.skip-link {
+  position: absolute;
+  z-index: 1100;
+  background-color: white;
+  color: black;
+  padding: 12px;
+}
+
+/* Видимый фокус при переходе клавишей Tab. */
+:focus-visible {
+  outline: 3px solid #0d6efd;
+  outline-offset: 3px;
+}
