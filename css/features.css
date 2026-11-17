@@ -46,3 +46,77 @@ html.theme-changing body, html.theme-changing body * { transition:background-col
 [hidden] { display:none !important; }
 @media(max-width:575px) { .site-search { flex-basis:100%; max-width:none; } .utility-inner { gap:10px; } .account-link { margin-left:0; margin-right:auto; } #themeLabel { font-size:13px; } }
 @media(prefers-reduced-motion:reduce) { html.theme-changing body, html.theme-changing body * { transition:none !important; } }
+
+/* The homepage uses one palette throughout, including nested panels.
+   Static gradients must not mask the animated background-color underneath. */
+:root {
+  --home-accent: #b71929;
+  --home-tint: #f8e9eb;
+  --home-shadow: 0 12px 35px rgba(15,20,28,.06);
+}
+[data-bs-theme="dark"] {
+  --home-accent: #ff7a84;
+  --home-tint: #29202a;
+  --home-shadow: 0 12px 35px rgba(0,0,0,.2);
+}
+html[data-bs-theme] .home-page main#main > section,
+html[data-bs-theme] .home-page .home-benefit,
+html[data-bs-theme] .home-page .card,
+html[data-bs-theme] .home-page .stat-panel,
+html[data-bs-theme] .home-page .section-race-cta {
+  background-image: none;
+  background-color: var(--surface);
+  color: var(--ink);
+  border-color: var(--line);
+  box-shadow: var(--home-shadow);
+}
+html[data-bs-theme] .home-page .home-benefit,
+html[data-bs-theme] .home-page .stat-panel {
+  background-color: var(--page);
+}
+html[data-bs-theme] .home-page .section-race-cta {
+  background-color: var(--home-tint);
+}
+html[data-bs-theme] .home-page .lead,
+html[data-bs-theme] .home-page .stat-panel span,
+html[data-bs-theme] .home-page .section-race-cta .text-white-50 {
+  color: var(--muted) !important;
+}
+html[data-bs-theme] .home-page .stat-panel strong,
+html[data-bs-theme] .home-page .location-kicker,
+html[data-bs-theme] .home-page .home-catalog-link {
+  color: var(--home-accent);
+}
+html[data-bs-theme] .home-page header.bg-dark,
+html[data-bs-theme] .home-page footer.site-footer,
+html[data-bs-theme] .home-page .site-breadcrumbs {
+  background: var(--surface) !important;
+  color: var(--ink) !important;
+  border-color: var(--line);
+}
+html[data-bs-theme] .home-page .navbar-brand,
+html[data-bs-theme] .home-page .navbar .nav-link,
+html[data-bs-theme] .home-page .site-breadcrumbs .breadcrumb-item.active,
+html[data-bs-theme] .home-page .site-footer h2,
+html[data-bs-theme] .home-page .site-footer a,
+html[data-bs-theme] .home-page .footer-contact-line {
+  color: var(--ink) !important;
+}
+html[data-bs-theme] .home-page .navbar .nav-link:hover,
+html[data-bs-theme] .home-page .navbar .nav-link.active,
+html[data-bs-theme] .home-page .site-footer a:hover {
+  color: var(--home-accent) !important;
+}
+html[data-bs-theme] .home-page .site-footer .text-white-50 {
+  color: var(--muted) !important;
+}
+html[data-bs-theme] .home-page .navbar-toggler { border-color: var(--line); }
+html[data-bs-theme="light"] .home-page .navbar-toggler-icon { filter: invert(1); }
+/* Animate all surfaces in both directions, while keeping motion preferences. */
+@media (prefers-reduced-motion: no-preference) {
+  .home-page, .home-page header, .home-page footer, .home-page main#main > section,
+  .home-page .home-benefit, .home-page .stat-panel, .home-page .section-race-cta,
+  .home-page .site-breadcrumbs {
+    transition: background-color .65s ease, color .65s ease, border-color .65s ease, box-shadow .65s ease;
+  }
+}
