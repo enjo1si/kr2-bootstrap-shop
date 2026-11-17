@@ -4,6 +4,8 @@ const programs = {
   sprint: { title:'Первый старт', price:1400, minutes:10, age:'От 14 лет', min:14, max:99, experience:'beginner', track:'Grand Loop', description:'Разовый заезд на взрослом карте. Инструктаж и знакомство с трассой включены.' },
   training: { title:'Тренировка с инструктором', price:3200, minutes:30, age:'От 14 лет', min:14, max:99, experience:'all', track:'Grand Loop', description:'Разбор траектории, торможения и работы с рулём. Для первого знакомства и улучшения времени.' },
   kids: { title:'Детская секция', price:2200, minutes:30, age:'8–13 лет', min:8, max:13, experience:'beginner', track:'Junior Loop', description:'Вводное занятие на детском карте с инструктором. Группа 8–13 лет.' },
+  endurance: { title:'Марафон', price:3900, minutes:40, age:'От 14 лет', min:14, max:99, experience:'experienced', track:'Grand Loop', description:'Продолжительный заезд для опытных пилотов: работа над темпом и стабильностью круга.' },
+  duo: { title:'Заезд с другом', price:1800, minutes:15, age:'От 14 лет', min:14, max:99, experience:'all', track:'Grand Loop', description:'Дружеский заезд на взрослых картах. Инструктаж включён, стоимость указана за участника.' },
   race: { title:'Гоночный заезд', price:2400, minutes:20, age:'От 14 лет', min:14, max:99, experience:'experienced', track:'Grand Loop', description:'Квалификация и заезд для пилотов с опытом. Учебная программа соревнования.' }
 };
 const byId = id => document.getElementById(id);
@@ -39,12 +41,19 @@ if (byId('ageFilter')) {
   ['ageFilter','levelFilter'].forEach(id => byId(id).addEventListener('change', filterCatalog));
 }
 
-if (byId('programModal')) byId('programModal').addEventListener('show.bs.modal', event => {
-  const id = event.relatedTarget?.dataset.program;
-  if (!known(id)) return;
-  const item = programs[id];
-  write('modalProgram', `${item.title} · ${money(item.price)} за участника · ${item.minutes} мин · ${item.age}`);
-  byId('modalOrder').href = `order.html?program=${id}`;
+// Полная форма бронирования открывается поверх текущей страницы.
+if (byId('bookingModal')) byId('bookingModal').addEventListener('show.bs.modal', event => {
+  const trigger = event.relatedTarget;
+  const id = trigger?.dataset.program;
+  const programSelect = byId('program');
+  if (programSelect) {
+    programSelect.value = known(id) ? id : '';
+    programSelect.dispatchEvent(new Event('change', { bubbles: true }));
+  }
+  const result = byId('bookingResult');
+  if (result) result.classList.add('d-none');
+  const form = byId('bookingForm');
+  if (form) form.classList.remove('was-validated');
 });
 
 if (byId('programTitle')) {
@@ -55,7 +64,9 @@ if (byId('programTitle')) {
   write('programBadge', `${item.age} · ${experienceLabel(item)}`);
   write('programDuration', `${item.minutes} минут`); write('programAge', item.age);
   write('programTrack', item.track); write('programLevel', experienceLabel(item));
-  byId('programOrder').href = `order.html?program=${id}`;
+  byId('programOrder').dataset.program = id;
+  const programImage = byId('programImage');
+  if (programImage) { programImage.src = `images/${id}-kart.svg`; programImage.alt = `Иллюстрация программы «${item.title}»`; }
   document.title = `${item.title} — Форсаж`;
 }
 
@@ -105,6 +116,7 @@ if (form) {
     const dateLabel = new Date(`${date.value}T12:00:00`).toLocaleDateString('ru-RU');
     // textContent выводит введённый текст без выполнения HTML.
     write('bookingSummary', `${byId('name').value.trim()}: ${item.title}, участников: ${count}, ${dateLabel} в ${time.value}. Предварительная сумма: ${money(item.price*count)}. Прибыть за 15 минут.`);
+    window.dispatchEvent(new CustomEvent('forsazh:booking', { detail: { id: Date.now().toString(36), title: item.title, date: date.value, time: time.value, people: count, total: item.price*count } }));
     byId('bookingResult').classList.remove('d-none'); byId('bookingResult').focus();
   });
   form.addEventListener('reset', () => {

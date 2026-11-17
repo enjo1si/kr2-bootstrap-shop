@@ -1,0 +1,320 @@
+/* FORSAZH / RACING REDESIGN
+   Подключить ПОСЛЕ Bootstrap и custom.css на всех HTML-страницах. */
+:root {
+  --race-bg: #0b0d10;
+  --race-panel: #14181e;
+  --race-panel-2: #1b2028;
+  --race-text: #f5f6f7;
+  --race-muted: #aab1bb;
+  --race-red: #ed2939;
+  --race-red-dark: #bd1726;
+  --race-border: rgba(255,255,255,.10);
+  --race-shadow: 0 18px 45px rgba(0,0,0,.22);
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+body {
+  min-height: 100vh; display: flex; flex-direction: column;
+  color: #20242a; background: #f2f3f5;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+main { flex: 1 0 auto; animation: race-page-in .55s ease both; }
+header.sticky-top, header { position: sticky; top: 0; z-index: 1030; }
+header.bg-dark { background: rgba(8,10,13,.94) !important; border-bottom: 1px solid rgba(237,41,57,.45); backdrop-filter: blur(14px); }
+.navbar { padding-top: .85rem !important; padding-bottom: .85rem !important; }
+.navbar-brand { display: inline-flex; align-items: center; gap: .45rem; font-weight: 850; letter-spacing: .03em; }
+.navbar-brand img { filter: drop-shadow(0 0 8px rgba(237,41,57,.3)); }
+.navbar .nav-link { position: relative; color: rgba(255,255,255,.76) !important; font-weight: 650; transition: color .2s ease; }
+.navbar .nav-link::after { content: ""; position: absolute; left: .5rem; right: .5rem; bottom: .15rem; height: 2px; background: var(--race-red); transform: scaleX(0); transform-origin: left; transition: transform .22s ease; }
+.navbar .nav-link:hover, .navbar .nav-link.active { color: #fff !important; }
+.navbar .nav-link:hover::after, .navbar .nav-link.active::after { transform: scaleX(1); }
+.navbar-toggler { border-color: rgba(255,255,255,.35); }
+
+h1, h2, h3, .display-1, .display-2, .display-3 { letter-spacing: -.035em; font-weight: 850; }
+h1 { line-height: 1.05; }
+h1, h2 { text-wrap: balance; }
+.lead { color: #555d68; max-width: 70ch; }
+main > .row, main > section, main > nav, main > h1 { position: relative; }
+
+.btn { border-radius: .45rem; font-weight: 750; padding: .72rem 1.15rem; transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease; }
+.btn-dark { background: var(--race-red); border-color: var(--race-red); }
+.btn-dark:hover, .btn-dark:focus { background: var(--race-red-dark); border-color: var(--race-red-dark); transform: translateY(-2px); box-shadow: 0 9px 22px rgba(237,41,57,.25); }
+.btn-outline-dark:hover { background: var(--race-red); border-color: var(--race-red); transform: translateY(-2px); }
+
+.card, .accordion-item { border: 1px solid #e2e5e9; border-radius: .8rem; overflow: hidden; box-shadow: 0 8px 24px rgba(18,24,32,.06); transition: transform .25s ease, box-shadow .25s ease; }
+.card:hover { transform: translateY(-5px); box-shadow: var(--race-shadow); }
+.card-body { padding: 1.4rem; }
+.card img, main img.img-fluid { transition: transform .45s ease, filter .35s ease; }
+.card:hover img { transform: scale(1.035); }
+main img.rounded, main img.img-fluid { border-radius: .85rem !important; }
+.badge.text-bg-dark { background: var(--race-red) !important; letter-spacing: .06em; }
+.alert { border: 0; border-left: 4px solid var(--race-red); border-radius: .55rem; }
+.table { --bs-table-striped-bg: rgba(237,41,57,.045); }
+.table thead th { background: #171b21; color: #fff; border-color: #303640; }
+.breadcrumb a { color: var(--race-red-dark); }
+.form-control, .form-select { border-radius: .5rem; border-color: #d9dee5; padding: .7rem .85rem; }
+.form-control:focus, .form-select:focus { border-color: var(--race-red); box-shadow: 0 0 0 .2rem rgba(237,41,57,.13); }
+
+/* Hero оформляется автоматически, если первый крупный блок главной имеет .hero или .home-hero. */
+.hero, .home-hero {
+  position: relative; isolation: isolate; overflow: hidden; color: var(--race-text);
+  min-height: clamp(420px, 66vh, 700px); display: flex; align-items: center;
+  padding: clamp(3rem, 8vw, 7rem) 0;
+  background: radial-gradient(ellipse at 78% 35%, rgba(237,41,57,.25), transparent 38%), linear-gradient(115deg,#090b0e 0%,#171c23 62%,#090b0e 100%);
+}
+.hero::before, .home-hero::before { content:""; position:absolute; inset:0; z-index:-1; opacity:.16; background: repeating-linear-gradient(135deg, transparent 0 34px, rgba(255,255,255,.12) 35px 36px); }
+.hero h1, .home-hero h1, .hero .lead, .home-hero .lead { color: var(--race-text); }
+.hero h1 span, .home-hero h1 span, .accent-red { color: var(--race-red); }
+.hero .btn-outline-light:hover, .home-hero .btn-outline-light:hover { color:#fff; background:var(--race-red); border-color:var(--race-red); }
+
+/* Нижняя часть сайта */
+.site-footer, footer.bg-dark { flex-shrink: 0; margin-top: auto !important; background: #090b0e !important; border-top: 3px solid var(--race-red); }
+.site-footer h2, footer h2 { color: #fff; font-size: 1rem; font-weight: 800; }
+.site-footer a, footer a { text-underline-offset: 3px; }
+.site-footer a:hover, footer a:hover { color: #ff6671 !important; }
+
+/* Эффекты появления управляются app.js; без JS контент остаётся видимым. */
+.js-reveal { opacity: 0; transform: translateY(22px); transition: opacity .65s ease, transform .65s cubic-bezier(.2,.7,.2,1); }
+.js-reveal.is-visible { opacity: 1; transform: none; }
+
+@keyframes race-page-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@media (max-width: 991.98px) {
+  .navbar-collapse { padding-top: .8rem; }
+  .navbar .nav-link::after { left: 0; right: auto; width: 2.2rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .js-reveal { opacity: 1; transform: none; }
+}
+
+/* Индивидуальные изображения программ */
+.program-card-image { display:block; width:100%; height:190px; object-fit:cover; background:#101319; border-bottom:1px solid rgba(255,255,255,.12); }
+.product-program-image { width:100%; max-height:440px; object-fit:cover; background:#101319; }
+.card .program-card-image { transition: transform .45s ease, filter .35s ease; }
+.card:hover .program-card-image { transform: scale(1.025); filter: saturate(1.15); }
+
+/* Кнопка наверх в стиле гоночного флага */
+.race-back-to-top { position:fixed; right:24px; bottom:24px; z-index:1080; width:76px; height:76px; border:1px solid rgba(237,41,57,.9); border-radius:22px 22px 22px 7px; color:#fff; background:linear-gradient(145deg,#242a33,#080a0d 72%); box-shadow:0 0 0 5px rgba(237,41,57,.08),0 10px 30px rgba(0,0,0,.42),0 0 24px rgba(237,41,57,.24); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1px; opacity:0; visibility:hidden; transform:translateY(18px) rotate(5deg); transition:opacity .25s ease,transform .25s ease,visibility .25s; cursor:pointer; }
+.race-back-to-top.is-visible { opacity:1; visibility:visible; transform:translateY(0) rotate(0); }
+.race-back-to-top:hover { transform:translateY(-5px) rotate(-3deg); background:linear-gradient(145deg,#ed2939,#8e101b); box-shadow:0 0 28px rgba(237,41,57,.45); }
+.race-flag { font-size:31px; line-height:1; color:#fff; text-shadow:2px 2px 0 #ed2939; }
+.race-top-label { font-size:9px; font-weight:900; letter-spacing:1.7px; }
+@media(max-width:575.98px) { .race-back-to-top { width:60px;height:60px;right:14px;bottom:14px;border-radius:18px 18px 18px 6px; } .race-flag{font-size:25px;} .program-card-image{height:165px;} }
+
+/* Страница расположения и схематичная карта Москвы */
+.footer-map-link { color:#ff5965; font-weight:800; text-decoration:none; }
+.footer-map-link:hover { color:#fff !important; }
+.location-page { max-width:1180px; }
+.location-kicker { color:#ed2939; font-size:.76rem; font-weight:900; letter-spacing:.16em; }
+.location-heading h1 { color:#fff; }
+.location-map-frame { overflow:hidden; border:1px solid rgba(237,41,57,.45); border-radius:1.1rem; background:#0b0e12; box-shadow:0 18px 55px rgba(0,0,0,.28),0 0 28px rgba(237,41,57,.08); }
+.location-map { display:block; width:100%; height:auto; }
+.location-map-iframe { display:block; width:100%; height:clamp(420px, 62vw, 680px); border:0; background:#101318; }
+.location-address-card { display:flex; align-items:center; gap:1.2rem; padding:1.5rem; border:1px solid #343b45; border-left:4px solid #ed2939; border-radius:.9rem; background:linear-gradient(110deg,#171c23,#0b0e12); color:#fff; }
+.location-address-card h2 { margin:.35rem 0; font-size:clamp(1.1rem,2.4vw,1.55rem); }
+.location-address-card p { color:#aeb7c2; font-size:.92rem; }
+.location-pin-icon { display:grid; place-items:center; flex:0 0 52px; width:52px; height:52px; border-radius:14px; background:rgba(237,41,57,.14); color:#ff4b58; font-size:2rem; }
+@media(max-width:767.98px){.location-address-card{align-items:flex-start;flex-wrap:wrap}.location-address-card .btn{width:100%}.location-pin-icon{flex-basis:44px;width:44px;height:44px}}
+
+/* Расширенный футер: навигация, контакты и адрес */
+.site-footer { color:#f4f5f7; }
+.site-footer .footer-nav li { margin:.42rem 0; }
+.site-footer .footer-nav a, .site-footer .footer-contact-line a { color:#d9dde3; text-decoration:none; }
+.site-footer .footer-nav a:hover, .site-footer .footer-contact-line a:hover { color:#ff5965 !important; }
+.footer-contact-line { display:flex; align-items:flex-start; gap:.65rem; margin-bottom:.65rem; color:#e4e7eb; }
+.footer-contact-line > span:first-child { display:inline-grid; place-items:center; flex:0 0 1.4rem; color:#ff4654; font-size:1.15rem; }
+.footer-bottom { border-top:1px solid rgba(255,255,255,.12); }
+.site-footer h2 { margin-bottom:1rem; }
+
+/* Дополнительные смысловые секции для полноценного наполнения страниц */
+.contact-info-card { height:100%; border:1px solid #343b45; background:linear-gradient(145deg,#fff,#f4f5f7); }
+.contact-detail { display:flex; align-items:center; gap:.9rem; margin:1.15rem 0; }
+.contact-detail a { color:#bd1726; font-weight:750; text-decoration:none; }
+.contact-icon { display:inline-grid; place-items:center; width:44px; height:44px; flex:0 0 44px; border-radius:13px; color:#ed2939; background:rgba(237,41,57,.1); font-size:1.55rem; font-weight:800; }
+.about-extra-section { padding-top:1rem; }
+.about-feature-panel { height:100%; color:#f5f6f7; border-radius:1rem; background:radial-gradient(circle at 90% 10%,rgba(237,41,57,.25),transparent 35%),linear-gradient(145deg,#191f27,#090b0e); box-shadow:0 16px 40px rgba(0,0,0,.18); }
+.about-feature-panel p { color:#c0c6cf; }
+.about-benefits { padding-left:1.2rem; color:#e5e8ec; }
+.about-benefits li { margin:.65rem 0; }
+.about-benefits li::marker { color:#ed2939; }
+.contact-map-panel { padding:1.4rem; border:1px solid #dfe3e8; border-radius:1rem; background:#fff; }
+.contact-map-iframe { display:block; width:100%; height:430px; border:0; background:#101318; }
+.about-visit-section { border-top:1px solid #dfe3e8; border-bottom:1px solid #dfe3e8; }
+.step-number { display:inline-grid; place-items:center; width:46px; height:46px; border-radius:13px; color:#fff; background:linear-gradient(135deg,#ed2939,#991321); font-weight:900; letter-spacing:.04em; box-shadow:0 7px 18px rgba(237,41,57,.22); }
+.info-tile { padding:1.35rem; border:1px solid #dfe3e8; border-radius:.85rem; background:#fff; }
+.info-tile strong { display:block; margin-bottom:.55rem; color:#bd1726; font-size:1.05rem; }
+.info-tile p { color:#626b76; }
+.stat-panel { min-height:125px; display:flex; flex-direction:column; justify-content:center; padding:1.25rem; border:1px solid #343b45; border-radius:.9rem; color:#fff; background:linear-gradient(145deg,#1b2028,#0b0d10); }
+.stat-panel strong { color:#ff4654; font-size:2rem; font-weight:900; line-height:1.1; }
+.stat-panel span { margin-top:.5rem; color:#c0c6cf; font-size:.88rem; }
+.section-race-cta { color:#fff; border:1px solid rgba(237,41,57,.4); border-radius:1rem; background:radial-gradient(circle at 85% 30%,rgba(237,41,57,.25),transparent 30%),linear-gradient(110deg,#171c23,#090b0e); }
+.location-directions .card { border-color:#e0e4e9; }
+@media(max-width:767.98px) { .contact-map-iframe { height:340px; } .contact-map-panel { padding:1rem; } .footer-bottom { line-height:1.6; } }
+
+
+/* Страница трасс: визуальное разделение на самостоятельные экраны */
+.tracks-page { overflow:hidden; }
+.tracks-intro { padding-bottom:2.2rem; }
+.tracks-screen { position:relative; isolation:isolate; }
+.tracks-screen::before { content:""; position:absolute; inset:0 0 auto; height:4px; background:linear-gradient(90deg,transparent,#ed2939 18%,#ed2939 82%,transparent); opacity:.9; }
+.tracks-screen-dark { color:#f7f8fa; background:radial-gradient(ellipse at 90% 15%,rgba(237,41,57,.16),transparent 35%),linear-gradient(145deg,#171c23,#080a0d); }
+.tracks-screen-light { background:linear-gradient(180deg,#f4f5f7,#fff); border-top:1px solid #dfe3e8; border-bottom:1px solid #dfe3e8; }
+.tracks-screen-red { color:#fff; background:linear-gradient(110deg,#8f101c,#ed2939 55%,#9e1420); }
+.tracks-section-heading { max-width:720px; }
+.track-feature-card { overflow:hidden; border:1px solid rgba(255,255,255,.16); border-radius:1rem; background:#10141a; box-shadow:0 18px 40px rgba(0,0,0,.22); }
+.track-feature-card img { display:block; width:100%; height:240px; object-fit:cover; background:#090b0e; }
+.track-feature-card p { color:#c2c8d0; }
+.track-feature-card strong { display:block; color:#fff; font-size:1.15rem; }
+.track-feature-card small { display:block; color:#9da6b2; }
+.track-steps { display:grid; gap:1rem; }
+.track-steps article { display:flex; gap:1rem; align-items:flex-start; padding:1.2rem 1.3rem; border:1px solid #e0e4e9; border-radius:.9rem; background:#fff; box-shadow:0 8px 24px rgba(20,28,38,.05); }
+.track-steps article>span { display:grid; place-items:center; flex:0 0 46px; height:46px; border-radius:13px; color:#fff; background:linear-gradient(135deg,#ed2939,#991321); font-weight:900; }
+.track-steps h3 { margin:.1rem 0 .35rem; }
+.track-steps p { margin:0; color:#66707c; }
+.tracks-kart-park { padding-top:1rem; padding-bottom:2rem; }
+@media(max-width:767.98px){ .track-feature-card img{height:190px;} .tracks-screen .container{padding-top:3rem!important;padding-bottom:3rem!important;} }
+
+/* Единый ритм секций для всех страниц, кроме уже оформленной страницы трасс */
+main:not(.tracks-page) > section,
+main:not(.tracks-page) > .row,
+main:not(.tracks-page) > .location-heading,
+main:not(.tracks-page) > .location-map-frame,
+main:not(.tracks-page) > .location-address-card,
+main:not(.tracks-page) > .location-directions {
+  position: relative;
+  isolation: isolate;
+  border-radius: 1.15rem;
+  overflow: hidden;
+  padding: clamp(1.35rem, 3vw, 2.5rem);
+  margin-top: 2rem !important;
+  margin-bottom: 2rem !important;
+}
+
+main:not(.tracks-page) > section::before,
+main:not(.tracks-page) > .row::before,
+main:not(.tracks-page) > .location-heading::before,
+main:not(.tracks-page) > .location-map-frame::before,
+main:not(.tracks-page) > .location-address-card::before,
+main:not(.tracks-page) > .location-directions::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0 0 auto;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #ed2939 18%, #ed2939 82%, transparent);
+}
+
+/* Светлые секции */
+main:not(.tracks-page) > section:nth-of-type(odd),
+main:not(.tracks-page) > .row:nth-of-type(odd),
+main:not(.tracks-page) > .location-heading {
+  background: linear-gradient(145deg, #f5f6f8, #fff);
+  border: 1px solid #e1e4e8;
+  box-shadow: 0 12px 35px rgba(15, 20, 28, .055);
+}
+
+/* Тёмные секции чередуются со светлыми — как на странице «Трассы» */
+main:not(.tracks-page) > section:nth-of-type(even),
+main:not(.tracks-page) > .row:nth-of-type(even),
+main:not(.tracks-page) > .location-map-frame {
+  color: #f7f8fa;
+  background: radial-gradient(ellipse at 90% 12%, rgba(237,41,57,.16), transparent 36%), linear-gradient(145deg, #171c23, #080a0d);
+  border: 1px solid rgba(237,41,57,.22);
+  box-shadow: 0 14px 38px rgba(0,0,0,.13);
+}
+
+main:not(.tracks-page) > .row > section,
+main:not(.tracks-page) > .row > aside {
+  border-radius: 1rem;
+  padding: clamp(1.25rem, 2.5vw, 2rem);
+  background: rgba(255,255,255,.94);
+  border: 1px solid #e1e4e8;
+  box-shadow: 0 10px 28px rgba(15,20,28,.06);
+}
+
+main:not(.tracks-page) > .row > section:has(.card),
+main:not(.tracks-page) > .row > aside:has(.card) {
+  padding: .75rem;
+}
+
+/* Каталог: отдельная гоночная зона с карточками программ */
+main:not(.tracks-page) > .row.g-4:has(.program-item) {
+  background: linear-gradient(145deg, #171c23, #090b0e);
+  border: 1px solid rgba(237,41,57,.25);
+}
+main:not(.tracks-page) .program-item .card,
+main:not(.tracks-page) .track-feature-card,
+main:not(.tracks-page) .info-tile {
+  border-radius: .9rem;
+  overflow: hidden;
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+main:not(.tracks-page) .program-item .card:hover,
+main:not(.tracks-page) .info-tile:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(0,0,0,.14);
+}
+
+/* Внутренние секции страниц «Описание», «О центре» и «Как добраться» */
+main:not(.tracks-page) section.my-5,
+main:not(.tracks-page) .about-extra-section,
+main:not(.tracks-page) .about-visit-section,
+main:not(.tracks-page) .catalog-guide-section,
+main:not(.tracks-page) .location-directions {
+  border: 1px solid #e0e4e9;
+  border-radius: 1.1rem;
+  padding: clamp(1.35rem, 3vw, 2.5rem) !important;
+  background: linear-gradient(180deg, #f4f5f7, #fff);
+  box-shadow: 0 12px 32px rgba(15,20,28,.055);
+}
+
+/* Форма бронирования — самостоятельный экран */
+#bookingForm, .booking-form, main:has(#bookingForm) > .row > section {
+  border-radius: 1rem;
+}
+main:has(#bookingForm) > .row > section:first-child {
+  color: #fff;
+  background: radial-gradient(circle at 85% 15%, rgba(237,41,57,.2), transparent 38%), linear-gradient(145deg,#171c23,#080a0d);
+  padding: clamp(1.35rem, 3vw, 2.2rem);
+}
+main:has(#bookingForm) > .row > section:last-child {
+  background: #f4f5f7;
+  border: 1px solid #e1e4e8;
+  padding: clamp(.75rem, 2vw, 1.25rem);
+}
+
+@media (max-width: 767.98px) {
+  main:not(.tracks-page) > section,
+  main:not(.tracks-page) > .row,
+  main:not(.tracks-page) > .location-heading,
+  main:not(.tracks-page) > .location-map-frame,
+  main:not(.tracks-page) > .location-address-card,
+  main:not(.tracks-page) > .location-directions {
+    border-radius: .8rem;
+    padding: 1.1rem;
+    margin-top: 1.25rem !important;
+    margin-bottom: 1.25rem !important;
+  }
+}
+
+
+/* Хлебные крошки — единая навигация на всех страницах */
+.site-breadcrumbs { position:relative; z-index:2; padding:.85rem 0; background:linear-gradient(90deg,#11161d,#1a2029 65%,#11161d); border-bottom:1px solid rgba(237,41,57,.28); }
+.site-breadcrumbs .breadcrumb { --bs-breadcrumb-divider: '›'; font-size:.88rem; letter-spacing:.015em; }
+.site-breadcrumbs .breadcrumb-item a { color:#bfc6d0; text-decoration:none; transition:color .2s ease; }
+.site-breadcrumbs .breadcrumb-item a:hover { color:#ff5965; }
+.site-breadcrumbs .breadcrumb-item.active { color:#fff; font-weight:750; }
+.site-breadcrumbs .breadcrumb-item + .breadcrumb-item::before { color:#ed2939; font-weight:900; }
+
+/* Полноценное модальное бронирование */
+.booking-modal .modal-content { overflow:hidden; border:1px solid rgba(237,41,57,.48); border-radius:1.15rem; background:#f4f5f7; box-shadow:0 24px 80px rgba(0,0,0,.45); }
+.booking-modal-header { align-items:flex-start; color:#fff; background:radial-gradient(circle at 90% 0,rgba(237,41,57,.32),transparent 38%),linear-gradient(125deg,#202630,#090b0f); border-bottom:3px solid #ed2939; padding:1.25rem 1.5rem; }
+.booking-modal-kicker { color:#ff5965; font-size:.7rem; font-weight:900; letter-spacing:.18em; }
+.booking-modal .modal-body { background:linear-gradient(180deg,#f3f4f6,#fff); }
+.booking-modal-form-wrap { padding:1rem; border:1px solid #dfe3e8; border-radius:.9rem; background:#fff; }
+.booking-modal #bookingForm { border:0; padding:0; background:transparent; box-shadow:none; }
+.booking-modal #bookingResult { margin-bottom:0; }
+.booking-modal .form-control:focus,.booking-modal .form-select:focus { border-color:#ed2939; box-shadow:0 0 0 .2rem rgba(237,41,57,.13); }
+.booking-modal .btn-dark { background:#171c23; border-color:#171c23; }
+.booking-modal .btn-dark:hover { background:#bd1726; border-color:#bd1726; }
+@media(max-width:575.98px) { .site-breadcrumbs{padding:.7rem 0}.site-breadcrumbs .breadcrumb{font-size:.8rem;flex-wrap:wrap}.booking-modal-header{padding:1rem}.booking-modal-form-wrap{padding:.6rem}.booking-modal .modal-dialog{margin:.5rem} }
